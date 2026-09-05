@@ -4,21 +4,20 @@ High-performance Rust market monitoring engine for real-time signals, anomaly de
 
 ## Status
 
-Early-stage production foundation. Implementation and validation are being developed incrementally with an evidence-first approach.
-
-## Objectives
-
-- Low-latency market data ingestion
-- Deterministic signal generation
-- Anomaly and regime detection
-- Risk-aware market analysis
-- Efficient concurrent processing in Rust
-- Observable, testable production services
+Early-stage production foundation.
 
 ## Engineering principles
 
-Correctness before optimization. Explicit failure handling. Deterministic behavior where practical. Measurable performance instead of unsupported claims.
+- Rust-first implementation for predictable performance and memory safety.
+- Deterministic, testable market-signal computation.
+- Fail-closed handling for invalid or incomplete market data.
+- Observable pipelines suitable for production deployment.
+- Benchmark-driven optimization rather than speculative complexity.
+
+## Validation
+
+The CI pipeline enforces formatting, compilation, Clippy warnings, and tests on pushes to `main` and pull requests.
 
 ## License
 
-Apache-2.0
+Apache-2.0.
