@@ -38,22 +38,52 @@ mod tests {
 
     #[test]
     fn rising_price_is_buy() {
-        assert_eq!(compute_signal(MarketSnapshot { price: 101.0, previous_price: 100.0 }), Ok(Signal::Buy));
+        assert_eq!(
+            compute_signal(MarketSnapshot {
+                price: 101.0,
+                previous_price: 100.0,
+            }),
+            Ok(Signal::Buy)
+        );
     }
 
     #[test]
     fn falling_price_is_sell() {
-        assert_eq!(compute_signal(MarketSnapshot { price: 99.0, previous_price: 100.0 }), Ok(Signal::Sell));
+        assert_eq!(
+            compute_signal(MarketSnapshot {
+                price: 99.0,
+                previous_price: 100.0,
+            }),
+            Ok(Signal::Sell)
+        );
     }
 
     #[test]
     fn unchanged_price_is_neutral() {
-        assert_eq!(compute_signal(MarketSnapshot { price: 100.0, previous_price: 100.0 }), Ok(Signal::Neutral));
+        assert_eq!(
+            compute_signal(MarketSnapshot {
+                price: 100.0,
+                previous_price: 100.0,
+            }),
+            Ok(Signal::Neutral)
+        );
     }
 
     #[test]
     fn invalid_price_fails_closed() {
-        assert_eq!(compute_signal(MarketSnapshot { price: f64::NAN, previous_price: 100.0 }), Err(SignalError::NonFinitePrice));
-        assert_eq!(compute_signal(MarketSnapshot { price: 0.0, previous_price: 100.0 }), Err(SignalError::NonPositivePrice));
+        assert_eq!(
+            compute_signal(MarketSnapshot {
+                price: f64::NAN,
+                previous_price: 100.0,
+            }),
+            Err(SignalError::NonFinitePrice)
+        );
+        assert_eq!(
+            compute_signal(MarketSnapshot {
+                price: 0.0,
+                previous_price: 100.0,
+            }),
+            Err(SignalError::NonPositivePrice)
+        );
     }
 }
