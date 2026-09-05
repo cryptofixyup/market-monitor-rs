@@ -1,0 +1,8 @@
+[package]
+name = "market-monitor-rs"
+version = "0.1.0"
+edition = "2021"
+license = "Apache-2.0"
+description = "High-performance Rust market monitoring engine for real-time signals, anomaly detection, risk analysis, and scalable financial intelligence."
+
+[dependencies]
